@@ -7,7 +7,7 @@ export const sectionItems: SidebarItem[] = [
     items: [
       {
         key: 'home',
-        href: '/',
+        href: '/dashboard',
         icon: 'solar:home-2-bold-duotone',
         title: 'Home'
       },

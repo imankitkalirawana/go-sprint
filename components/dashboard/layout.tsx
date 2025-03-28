@@ -11,17 +11,16 @@ import {
 import { Icon } from '@iconify/react';
 import React, { useEffect, useMemo, useState } from 'react';
 import Sidebar from '@/components/dashboard/sidebar/sidebar';
-import { signOut, useSession } from 'next-auth/react';
+import { signOut } from 'next-auth/react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import Logo from '../ui/logo';
 import { useRouter } from 'nextjs-toploader/app';
+import QuickButtons from './sidebar/quick-buttons';
 
 export default function DashboardLayout({
-  session,
   children
 }: {
-  session: any;
   readonly children: React.ReactNode;
 }) {
   const router = useRouter();
@@ -52,10 +51,11 @@ export default function DashboardLayout({
           }
         )}
       >
-        <div className="px-4 py-2">
-          <Link href="/dashboard">
+        <div className="flex flex-col gap-4 px-4 py-2">
+          <Link href="/">
             <Logo />
           </Link>
+          <QuickButtons />
         </div>
 
         <ScrollShadow className="h-full max-h-full pl-2">

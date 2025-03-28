@@ -17,9 +17,7 @@ export default async function Layout({
     <>
       {
         // @ts-ignore
-        session && (
-          <DashboardLayout session={session}>{children}</DashboardLayout>
-        )
+        session && <DashboardLayout>{children}</DashboardLayout>
       }
     </>
   );

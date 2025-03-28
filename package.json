@@ -22,7 +22,6 @@
     "framer-motion": "^11.11.10",
     "input-otp": "^1.2.4",
     "jsonwebtoken": "^9.0.2",
-    "lucide-react": "^0.439.0",
     "mongodb": "^6.10.0",
     "mongoose": "^8.7.3",
     "next": "^14.2.25",

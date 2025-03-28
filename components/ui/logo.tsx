@@ -1,5 +1,3 @@
-import Image from 'next/image';
-
 export default function Logo() {
   return (
     <h2 className="flex items-center pl-4 text-2xl font-bold">

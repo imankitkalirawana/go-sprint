@@ -1,3 +1,4 @@
+import { Base } from '@/types';
 import mongoose, { Model } from 'mongoose';
 
 export interface UserType extends Base {
