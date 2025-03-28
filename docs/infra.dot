@@ -1,0 +1,11 @@
+digraph INFRA {
+  node [ color = "black", fillcolor = "#E6E6E6", height =1, style = "filled,bold,rounded", fontname = "Arial" ];
+  "NextJS Application" [ label = "NextJS Application
+(NextJS::Application)", shape =rectangle, fillcolor = "#B7E0FF" ];
+  "MongoDB" [ label = "MongoDB
+(MongoDB::Database)", shape =cylinder, fillcolor = "#FFCFB3" ];
+  "AWS S3" [ label = "AWS S3
+(AWS::S3::Bucket)", shape =cylinder, fillcolor = "#FFF5CD" ];
+  "NextJS Application" -> "MongoDB";
+  "NextJS Application" -> "AWS S3";
+}
