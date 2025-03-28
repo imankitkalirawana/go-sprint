@@ -22,6 +22,7 @@ import { I18nProvider } from '@react-aria/i18n';
 import { parseDate } from '@internationalized/date';
 import * as Yup from 'yup';
 import { useQueryState } from 'nuqs';
+import RowSteps from '@/components/ui/stepper';
 
 const validationSchema = Yup.object({
   mode: Yup.string().required('Please select a mode'),
@@ -86,7 +87,12 @@ export default function QuickButtons() {
           Add Shipment
         </Button>
         <Tooltip content="Bulk Upload" color="primary">
-          <Button color="primary" variant="flat" isIconOnly>
+          <Button
+            color="primary"
+            variant="flat"
+            isIconOnly
+            onPress={() => setModal('bulk-upload')}
+          >
             <Icon icon="solar:cloud-upload-bold" width={18} />
           </Button>
         </Tooltip>
@@ -219,24 +225,50 @@ export default function QuickButtons() {
         }
         backdrop="blur"
         scrollBehavior="inside"
+        size="3xl"
       >
         <ModalContent>
           {(onClose) => (
             <>
-              <ModalHeader className="flex items-center gap-1">
-                Bulk Upload
-              </ModalHeader>
-              <ModalBody as={ScrollShadow}></ModalBody>
-              <ModalFooter>
-                <Button
-                  fullWidth
-                  isLoading={formik.isSubmitting}
-                  color="primary"
-                  onPress={handleFormSubmit}
+              <ModalBody className="py-6">
+                <div className="flex w-full justify-center">
+                  <RowSteps
+                    steps={[
+                      {
+                        title: 'Upload File'
+                      },
+                      {
+                        title: 'Verify Data'
+                      },
+                      {
+                        title: 'Import Data'
+                      }
+                    ]}
+                  />
+                </div>
+
+                <label
+                  htmlFor="file"
+                  className="flex flex-col items-center justify-center gap-4 rounded-lg border border-dashed border-foreground p-4"
                 >
-                  Submit
-                </Button>
-              </ModalFooter>
+                  <Button
+                    color="primary"
+                    size="lg"
+                    radius="full"
+                    as="label"
+                    htmlFor="file"
+                    startContent={
+                      <Icon icon="solar:cloud-upload-bold" width={18} />
+                    }
+                  >
+                    Upload File
+                  </Button>
+                  <h4 className="text-lg font-medium text-default-500">
+                    or drop a file
+                  </h4>
+                </label>
+                <input id="file" type="file" className="hidden" />
+              </ModalBody>
             </>
           )}
         </ModalContent>
